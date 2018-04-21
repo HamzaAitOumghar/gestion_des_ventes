@@ -1,4 +1,5 @@
-﻿using Gestion_de_vente.Resources;
+﻿using Gestion_de_vente.Classe;
+using Gestion_de_vente.Resources;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -21,7 +22,7 @@ namespace Gestion_de_vente
 
             SqlConnection con = new SqlConnection(conString);
             con.Open();
-            SqlCommand sql = new SqlCommand("SELECT *  FROM Facture ", con);
+            SqlCommand sql = new SqlCommand("SELECT num_facture as 'Num de Facture' ,date_facture as 'Date de Facture', date_paiement as 'Date de Paiement'  FROM Facture WHERE username = '" + DataContainer.nomUtilisateur +"'", con);
             SqlDataAdapter sda = new SqlDataAdapter();
             sda.SelectCommand = sql;
 
@@ -34,17 +35,23 @@ namespace Gestion_de_vente
             12.0F, FontStyle.Bold);
   
             col.UseColumnTextForButtonValue = true;
-            col.Text = "Details";
-            col.Name = "Details";
+            col.Text = "Détails";
+            col.Name = "Action";
 
             
 
             sda.Fill(dataset);
             bunifuCustomDataGrid1.DataSource = dataset;
             bunifuCustomDataGrid1.Columns.Add(col);
+            for (int i = 0; i < bunifuCustomDataGrid1.Columns.Count; i++)
+                bunifuCustomDataGrid1.Columns[i].AutoSizeMode = DataGridViewAutoSizeColumnMode.NotSet;
+
+            bunifuCustomDataGrid1.Columns[0].Width = 124;
+            bunifuCustomDataGrid1.Columns[1].Width = 150;
+            bunifuCustomDataGrid1.Columns[2].Width = 150;
+            bunifuCustomDataGrid1.Columns[3].Width = 150;
 
 
-             
         }
 
         private void label2_Click(object sender, EventArgs e)
@@ -54,14 +61,14 @@ namespace Gestion_de_vente
 
         private void bunifuCustomDataGrid1_CellContentClick(object sender, DataGridViewCellEventArgs e)
         {
-            if (bunifuCustomDataGrid1.Columns[e.ColumnIndex].Name == "Details" && e.RowIndex!=-1)
+            if (bunifuCustomDataGrid1.Columns[e.ColumnIndex].Name == "Action" && e.RowIndex!=-1)
             {
                 
-                int num_fac = (int)bunifuCustomDataGrid1.Rows[e.RowIndex].Cells["num_facture"].Value;
+                int num_fac = (int)bunifuCustomDataGrid1.Rows[e.RowIndex].Cells["Num de Facture"].Value;
                 Details det = new Details();
                 SqlConnection con = new SqlConnection(conString);
                 con.Open();
-                SqlCommand sql = new SqlCommand("SELECT c.num_prod , p.nom_prod , c.quantite  ,p.prix_prod*c.quantite as 'Total' FROM Contient as c ,Produit as p WHERE num_facture="+ num_fac + " AND c.num_prod=p.num_prod ;"  , con);
+                SqlCommand sql = new SqlCommand("SELECT c.num_prod as 'Num du Produit', p.nom_prod as 'Nom de Produit', c.quantite as 'Quantite'  ,p.prix_prod*c.quantite as 'Total' FROM Contient as c ,Produit as p WHERE num_facture="+ num_fac + " AND c.num_prod=p.num_prod ;"  , con);
                 SqlDataAdapter sda = new SqlDataAdapter();
                 sda.SelectCommand = sql;
 
@@ -71,8 +78,16 @@ namespace Gestion_de_vente
                 det.DataGrid.DataSource = dataset;
 
 
-                //// det.LabelText= bunifuCustomDataGrid1.Rows[]
-                 det.Show();
+                for (int i = 0; i < det.DataGrid.Columns.Count; i++)
+                    det.DataGrid.Columns[i].AutoSizeMode = DataGridViewAutoSizeColumnMode.NotSet;
+
+                det.DataGrid.Columns[0].Width = 124;
+                det.DataGrid.Columns[1].Width = 150;
+                det.DataGrid.Columns[2].Width = 150;
+                det.DataGrid.Columns[3].Width = 135;
+
+                det.LabelText = "Détails Du Facture N°" + num_fac;
+                det.Show();
             }
         }
     }

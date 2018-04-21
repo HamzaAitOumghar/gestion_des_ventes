@@ -36,11 +36,11 @@ namespace Gestion_de_vente
         {
             get
             {
-                return this.label1.Text;
+                return this.bunifuCustomLabel1.Text;
             }
             set
             {
-                this.label1.Text = value;
+                this.bunifuCustomLabel1.Text = value;
             }
         }
         public DataGridView DataGrid
@@ -61,6 +61,11 @@ namespace Gestion_de_vente
         }
 
         private void bunifuCustomDataGrid2_CellContentClick(object sender, DataGridViewCellEventArgs e)
+        {
+
+        }
+
+        private void bunifuCustomLabel1_Click(object sender, EventArgs e)
         {
 
         }

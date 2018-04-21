@@ -102,7 +102,7 @@ namespace Gestion_de_vente
                     }
                     else
                     {
-                        errorMessage.Text = " entrer votre nom d'utilisateur et votre mot de passe !";
+                        errorMessage.Text = " username ou mot de passe incorrect !";
                         errorImage.Visible = true;
                     }
                     con.Close();

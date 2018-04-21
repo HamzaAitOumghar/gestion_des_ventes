@@ -21,21 +21,23 @@ namespace Gestion_de_vente
             InitializeComponent();
             SqlConnection con = new SqlConnection(conString);
             con.Open();
-            SqlCommand sql = new SqlCommand("SELECT num_prod as 'Num Du Produit' , nom_prod as 'Nom du Produit' ,desc_prod ,prix_prod  FROM Produit ", con);
+            SqlCommand sql = new SqlCommand("SELECT num_prod as 'Num Du Produit' , nom_prod as 'Nom du Produit' ,desc_prod as 'Description du produit' ,prix_prod as 'Prix Produit'  FROM Produit ", con);
             SqlDataAdapter sda = new SqlDataAdapter();
             sda.SelectCommand = sql;
 
             DataTable dataset = new DataTable();
-         //   bunifuCustomDataGrid1.Rows[0].Height = 100;
+           // bunifuCustomDataGrid1.Rows[0].Height = 100;
 
             sda.Fill(dataset);
 
             bunifuCustomDataGrid1.DataSource = dataset;
+            for(int i=0;i< bunifuCustomDataGrid1.Columns.Count;i++)
+             bunifuCustomDataGrid1.Columns[i].AutoSizeMode = DataGridViewAutoSizeColumnMode.NotSet;
 
-            //bunifuCustomDataGrid1.Columns[0].Width = 400;
-            //bunifuCustomDataGrid1.Columns[1].Width = 400;
-            //bunifuCustomDataGrid1.Columns[2].Width = 400;
-
+             bunifuCustomDataGrid1.Columns[0].Width = 132;
+             bunifuCustomDataGrid1.Columns[1].Width = 150;
+             bunifuCustomDataGrid1.Columns[2].Width = 150;
+             bunifuCustomDataGrid1.Columns[3].Width = 150;
             ////bunifuCustomDataGrid1.Update();
         }
 
