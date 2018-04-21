@@ -16,12 +16,14 @@ namespace Gestion_de_vente.Resources
         public BaseForm()
         {
             InitializeComponent();
-            this.label1.Text = "Bonjour" + DataContainer.nomUtilisateur;
+            this.label1.Text = "Bonjour " + DataContainer.nomUtilisateur;
         }
 
         private void button1_Click(object sender, EventArgs e)
         {
-
+            Main main = new Main();
+            main.Show();
+            this.Hide();
         }
 
         private void pictureBox1_Click(object sender, EventArgs e)
@@ -31,7 +33,9 @@ namespace Gestion_de_vente.Resources
 
         private void button2_Click(object sender, EventArgs e)
         {
-
+            Produits prod = new Produits();
+            prod.Show();
+            this.Hide();
         }
 
         private void textBox1_TextChanged(object sender, EventArgs e)
@@ -77,6 +81,20 @@ namespace Gestion_de_vente.Resources
         private void label1_Click(object sender, EventArgs e)
         {
 
+        }
+
+        private void button3_Click(object sender, EventArgs e)
+        {
+            Factures fac = new Factures();
+            fac.Show();
+            this.Hide();
+        }
+
+        private void pictureBox5_Click(object sender, EventArgs e)
+        {
+            Profile pro = new Profile();
+            pro.Show();
+            this.Hide();
         }
     }
 }

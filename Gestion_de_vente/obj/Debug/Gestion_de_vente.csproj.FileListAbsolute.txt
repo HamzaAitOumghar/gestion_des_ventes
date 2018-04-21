@@ -42,3 +42,7 @@ C:\Users\HAMZAPC\documents\visual studio 2015\Projects\Gestion_de_vente\Gestion_
 C:\Users\HAMZAPC\documents\visual studio 2015\Projects\Gestion_de_vente\Gestion_de_vente\obj\Debug\Gestion_de_vente.exe
 C:\Users\HAMZAPC\documents\visual studio 2015\Projects\Gestion_de_vente\Gestion_de_vente\obj\Debug\Gestion_de_vente.pdb
 C:\Users\HAMZAPC\documents\visual studio 2015\Projects\Gestion_de_vente\Gestion_de_vente\obj\Debug\Gestion_de_vente.Produits.resources
+C:\Users\HAMZAPC\documents\visual studio 2015\Projects\Gestion_de_vente\Gestion_de_vente\obj\Debug\Gestion_de_vente.Factures.resources
+C:\Users\HAMZAPC\documents\visual studio 2015\Projects\Gestion_de_vente\Gestion_de_vente\obj\Debug\Gestion_de_vente.Profile.resources
+C:\Users\HAMZAPC\documents\visual studio 2015\Projects\Gestion_de_vente\Gestion_de_vente\obj\Debug\Gestion_de_vente.Details.resources
+C:\Users\HAMZAPC\documents\visual studio 2015\Projects\Gestion_de_vente\Gestion_de_vente\obj\Debug\Gestion_de_vente.Contact.resources
